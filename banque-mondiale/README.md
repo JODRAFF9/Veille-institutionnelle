@@ -1,7 +1,17 @@
 # Banque mondiale
 
-1. [01-organisation.md](01-organisation.md) : mission, groupe, gouvernance, financement, origine des données
-2. [02-sites-et-portails.md](02-sites-et-portails.md) : sites et portails
-3. [03-donnees-et-api.md](03-donnees-et-api.md) : API Indicateurs v2
+| Thème | Dossier |
+|---|---|
+| Histoire et mission | [01-histoire-et-mission](01-histoire-et-mission/README.md) |
+| Groupe et institutions | [02-groupe-et-institutions](02-groupe-et-institutions/README.md) |
+| Gouvernance | [03-gouvernance](03-gouvernance/README.md) |
+| Financement et produits | [04-financement-et-produits](04-financement-et-produits/README.md) |
+| Projets et cycle | [05-projets-et-cycle](05-projets-et-cycle/README.md) |
+| Recherche et publications | [06-recherche-et-publications](06-recherche-et-publications/README.md) |
+| Données | [07-donnees](07-donnees/README.md) |
+| Classifications | [08-classifications](08-classifications/README.md) |
+| Évaluation et contrôle | [09-evaluation-et-controle](09-evaluation-et-controle/README.md) |
+| Plans stratégiques | [10-plans-strategiques](10-plans-strategiques/README.md) |
+| Critiques et débats | [11-critiques-et-debats](11-critiques-et-debats/README.md) |
 
 Script : `python3 scripts/wb_indicator.py FRA NY.GDP.MKTP.CD 2015 2024`
