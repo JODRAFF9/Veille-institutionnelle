@@ -15,3 +15,5 @@
 | Critiques et débats | [11-critiques-et-debats](11-critiques-et-debats/README.md) |
 
 Script : `python3 scripts/wb_indicator.py FRA NY.GDP.MKTP.CD 2015 2024`
+
+Chaque dossier contient `ressources.xlsx` et `presentation.tex/pdf`. Le thème Données a un sous-dossier par site : portail, DataBank, catalogue, Data360, PIP, microdonnées, API et aide, médiathèque. Vue d'ensemble : [presentation-globale.pdf](presentation-globale.pdf).

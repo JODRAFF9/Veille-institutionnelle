@@ -1,27 +1,29 @@
-# Banque mondiale et FMI : fonctionnement et données
+# Veille institutionnelle : Banque mondiale et FMI
 
-Dépôt d'étude pour comprendre comment les deux institutions fonctionnent, produisent leurs données et les exposent.
-
-## Structure
+Dépôt de veille et d'étude : comprendre en profondeur comment chaque institution fonctionne, comment elle produit et expose ses données, et suivre ses publications. Fréquence de veille actuelle : **hebdomadaire**.
 
 | Dossier | Contenu |
 |---|---|
-| [banque-mondiale/](banque-mondiale/README.md) | Fonctionnement global, sites, API Indicateurs, script |
-| [fmi/](fmi/README.md) | Fonctionnement global, sites, DataMapper et SDMX, scripts |
+| [banque-mondiale/](banque-mondiale/README.md) | 11 thèmes, sous-dossiers par site de données, présentation globale |
+| [fmi/](fmi/README.md) | 12 thèmes, sous-dossiers par site de données, présentation globale |
+| [veille/](veille/README.md) | Routine hebdomadaire, calendrier des publications, journal de veille |
 | [comparaison/](comparaison/01-comparaison.md) | Différences, pièges d'analyse, glossaire |
-| `data/raw/` | Extractions locales (ignorées par git) |
-| `notebooks/` | Analyses |
+| [outils/](outils/) | Source du contenu, générateur Excel et Beamer, vérificateur de liens |
 
-## Idée directrice
+Dans chaque dossier thématique :
 
-- **Banque mondiale** : prêteur de développement. Ses données décrivent le développement (pauvreté, santé, éducation, secteurs), annuelles, assemblées à partir de sources nationales, d'organisations partenaires et d'enquêtes propres.
-- **FMI** : gardien de la stabilité financière. Ses données sont des statistiques macroéconomiques et financières déclarées par les pays membres, plus ses propres prévisions (WEO, deux fois par an).
+- `README.md` : explication du thème
+- `ressources.xlsx` : liens de compréhension, rythme de publication, fréquence de veille, statut du lien
+- `presentation.tex` et `presentation.pdf` : présentation Beamer
+
+Chaque institution a aussi une `presentation-globale.tex` (et son PDF). Pour ajouter une institution : [CONVENTIONS.md](CONVENTIONS.md).
 
 ## Démarrage rapide
 
 ```bash
 python3 banque-mondiale/scripts/wb_indicator.py FRA NY.GDP.MKTP.CD 2015 2024
 python3 fmi/scripts/imf_datamapper.py NGDPD FRA
+python3 outils/generer.py --pdf
 ```
 
-Python 3.9+, aucune dépendance. Dernière vérification des API : 3 novembre 2026.
+Python 3.9+ (openpyxl pour les Excel) et pdflatex pour les PDF. Dernière vérification des liens et API : 3 novembre 2026.

@@ -16,3 +16,5 @@
 | Critiques et débats | [12-critiques-et-debats](12-critiques-et-debats/README.md) |
 
 Scripts : `python3 scripts/imf_datamapper.py NGDPD FRA` et `python3 scripts/imf_sdmx_dataflows.py`
+
+Chaque dossier contient `ressources.xlsx` et `presentation.tex/pdf`. Le thème Données a un sous-dossier par site : data.imf.org, DataMapper, API SDMX, normes de diffusion, médiathèque. Vue d'ensemble : [presentation-globale.pdf](presentation-globale.pdf).
