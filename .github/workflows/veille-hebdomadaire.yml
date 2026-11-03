@@ -35,7 +35,7 @@ jobs:
             echo "- [ ] Consulter le calendrier des publications (\`veille/calendrier-veille.xlsx\`)"
             echo "- [ ] Médiathèque Banque mondiale : blog des données ouvertes, pages thématiques"
             echo "- [ ] Médiathèque FMI : blogs, vidéos, podcasts, actualités de data.imf.org"
-            echo "- [ ] BAD, UA et commissions régionales de l'ONU : actualités, communiqués, publications"
+            echo "- [ ] BAD, UA, OCDE et commissions régionales de l'ONU : actualités, communiqués, publications"
             echo "- [ ] Contrôler \`lastupdated\` de l'API de la Banque mondiale et le millésime du WEO"
             echo "- [ ] Consigner les changements dans le journal de veille"
             echo "- [ ] Mettre à jour \`outils/donnees_veille.py\` puis régénérer si un chiffre est dépassé"

@@ -1,0 +1,53 @@
+\documentclass[aspectratio=169,11pt]{beamer}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[french]{babel}
+\usepackage{helvet}
+\renewcommand{\familydefault}{\sfdefault}
+\usepackage{hyperref}
+\definecolor{bleu}{HTML}{0000FF}
+\definecolor{fond}{HTML}{F4F4EF}
+\setbeamercolor{background canvas}{bg=fond}
+\setbeamercolor{structure}{fg=bleu}
+\setbeamercolor{title}{fg=bleu}
+\setbeamercolor{frametitle}{fg=bleu,bg=fond}
+\setbeamercolor{normal text}{fg=black}
+\setbeamertemplate{navigation symbols}{}
+\setbeamertemplate{itemize item}{\textcolor{bleu}{\tiny$\blacksquare$}}
+\setbeamertemplate{footline}{\hfill\footnotesize\insertframenumber\hspace{1em}\vskip6pt}
+\hypersetup{colorlinks=true,urlcolor=bleu,linkcolor=bleu}
+\title{Données}
+\subtitle{Organisation de coopération et de développement économiques}
+\author{Veille institutionnelle}
+\date{2026-11-03}
+
+\begin{document}
+\begin{frame}\titlepage\end{frame}
+
+\begin{frame}{Données (1/2)}
+\begin{itemize}
+\item OECD Data Explorer : requêteur principal, a remplacé OECD.Stat en 2024 (à vérifier)
+\item data.oecd.org : portail grand public avec indicateurs et visualisations
+\item API SDMX sur sdmx.oecd.org : dataflows, structures et séries
+\item PISA, PIAAC et statistiques de l'aide publique au développement du CAD
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Données (2/2)}
+\begin{itemize}
+\item Les données reprennent des déclarations nationales, avec contrôles et harmonisation par l'OCDE
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Données : ressources à suivre}
+\small
+Veille hebdomadaire.
+\begin{itemize}
+\item \href{https://data-explorer.oecd.org}{OECD Data Explorer}\\{\footnotesize Requêteur, publication : hebdomadaire}
+\item \href{https://data.oecd.org}{OECD Data}\\{\footnotesize Portail, publication : mensuelle}
+\item \href{https://sdmx.oecd.org/public/rest/dataflow}{API SDMX}\\{\footnotesize API, publication : trimestrielle}
+\item \href{https://www.oecd.org/en/about/programmes/pisa.html}{PISA}\\{\footnotesize Enquête, publication : annuelle}
+\end{itemize}
+\end{frame}
+
+\end{document}
