@@ -199,6 +199,8 @@ def main():
             chemin = os.path.join(RACINE, dossier_inst, dossier)
             os.makedirs(chemin, exist_ok=True)
             ecrire_ressources(os.path.join(chemin, "ressources.xlsx"), inst["nom"], theme, ressources, statuts)
+            if not os.path.exists(os.path.join(chemin, "README.md")):
+                ecrire(os.path.join(chemin, "README.md"), readme(theme, points, ressources, statuts))
             corps = frames(theme, points, ressources)
             ecrire(os.path.join(chemin, "presentation.tex"), document(theme, inst["nom"], corps))
             globaux.append("\\section{%s}\n%s" % (tex(theme), corps))
@@ -215,6 +217,11 @@ def main():
             if pdf:
                 compiler(chemin, "presentation.tex")
         base = os.path.join(RACINE, dossier_inst)
+        if not os.path.exists(os.path.join(base, "README.md")):
+            lignes = ["# " + inst["nom"], "", "| Thème | Dossier |", "|---|---|"]
+            lignes += [f"| {t[1]} | [{t[0]}]({t[0]}/README.md) |" for t in inst["themes"]]
+            lignes += ["", "Chaque dossier contient `ressources.xlsx` et `presentation.tex/pdf`. Vue d'ensemble : [presentation-globale.pdf](presentation-globale.pdf).", ""]
+            ecrire(os.path.join(base, "README.md"), "\n".join(lignes))
         ecrire(os.path.join(base, "presentation-globale.tex"),
                document(inst["nom"], "Fonctionnement et données, vue d'ensemble", "\n".join(globaux)))
         if pdf:
