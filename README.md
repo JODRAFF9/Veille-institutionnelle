@@ -1,4 +1,4 @@
-# Veille institutionnelle : Banque mondiale et FMI
+# Veille institutionnelle
 
 Dépôt de veille et d'étude : comprendre en profondeur comment chaque institution fonctionne, comment elle produit et expose ses données, et suivre ses publications. Fréquence de veille actuelle : **hebdomadaire**.
 
@@ -6,6 +6,9 @@ Dépôt de veille et d'étude : comprendre en profondeur comment chaque institut
 |---|---|
 | [banque-mondiale/](banque-mondiale/README.md) | 11 thèmes, sous-dossiers par site de données, présentation globale |
 | [fmi/](fmi/README.md) | 12 thèmes, sous-dossiers par site de données, présentation globale |
+| [banque-africaine-de-developpement/](banque-africaine-de-developpement/README.md) | BAD : 11 thèmes, sous-dossiers par portail de données |
+| [union-africaine/](union-africaine/README.md) | UA : 10 thèmes, communautés économiques régionales, Agenda 2063 |
+| [commissions-economiques-regionales/](commissions-economiques-regionales/README.md) | Cinq commissions régionales de l'ONU, un sous-dossier par commission |
 | [veille/](veille/README.md) | Routine hebdomadaire, calendrier des publications, journal de veille |
 | [comparaison/](comparaison/01-comparaison.md) | Différences, pièges d'analyse, glossaire |
 | [outils/](outils/) | Source du contenu, générateur Excel et Beamer, vérificateur de liens |
