@@ -20,7 +20,7 @@ from openpyxl import Workbook
 from openpyxl.styles import Alignment, Font, PatternFill
 from openpyxl.utils import get_column_letter
 
-from donnees_veille import CALENDRIER, INSTITUTIONS, SOUS_DOSSIERS
+from donnees_veille import CALENDRIER, INSTITUTIONS, OPPORTUNITES, SOUS_DOSSIERS
 
 RACINE = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 CACHE = os.path.join(RACINE, "outils", "statuts.json")
@@ -51,6 +51,8 @@ def toutes_urls():
     for parent in SOUS_DOSSIERS.values():
         for subs in parent.values():
             urls |= {r[1] for sd in subs for r in sd[3]}
+    for dossiers in OPPORTUNITES.values():
+        urls |= {r[1] for d in dossiers for r in d[3]}
     return sorted(urls)
 
 
@@ -186,6 +188,35 @@ def compiler(dossier, fichier):
     return r.returncode == 0
 
 
+def ecrire_opportunites(statuts, pdf):
+    base = os.path.join(RACINE, "opportunites")
+    os.makedirs(base, exist_ok=True)
+    index = ["# Opportunités", "",
+             "Emplois, stages, marchés, bourses et événements de chaque institution. Veille " + FREQUENCE_VEILLE.lower() + ".", "",
+             "| Institution | Dossier |", "|---|---|"]
+    for cle, dossiers in OPPORTUNITES.items():
+        nom = INSTITUTIONS[cle]["nom"]
+        index.append(f"| {nom} | [{cle}/]({cle}/README.md) |")
+        sous = ["# " + nom + " : opportunités", "", "| Thème | Dossier |", "|---|---|"]
+        for d, titre, points, ressources in dossiers:
+            chemin = os.path.join(base, cle, d)
+            os.makedirs(chemin, exist_ok=True)
+            ecrire_ressources(os.path.join(chemin, "ressources.xlsx"), nom, titre, ressources, statuts)
+            ecrire(os.path.join(chemin, "README.md"), readme(titre, points, ressources, statuts))
+            ecrire(os.path.join(chemin, "presentation.tex"), document(titre + " : " + nom, "Opportunités", frames(titre, points, ressources)))
+            sous.append(f"| {titre} | [{d}]({d}/README.md) |")
+            if pdf:
+                compiler(chemin, "presentation.tex")
+        ecrire(os.path.join(base, cle, "README.md"), "\n".join(sous) + "\n")
+    ecrire(os.path.join(base, "README.md"), "\n".join(index) + "\n\nSuivi des candidatures : [suivi-des-opportunites.xlsx](suivi-des-opportunites.xlsx).\n")
+    wb = Workbook()
+    ws = wb.active
+    ws.title = "Suivi"
+    ws.append(["Institution", "Opportunité", "Type", "Lien", "Date limite", "Statut", "Prochaine action", "Notes"])
+    style_entete(ws, [26, 40, 24, 50, 14, 16, 30, 40])
+    wb.save(os.path.join(base, "suivi-des-opportunites.xlsx"))
+
+
 def main():
     if "--sans-verif" in sys.argv and os.path.exists(CACHE):
         statuts = json.load(open(CACHE))
@@ -226,6 +257,7 @@ def main():
                document(inst["nom"], "Fonctionnement et données, vue d'ensemble", "\n".join(globaux)))
         if pdf:
             compiler(base, "presentation-globale.tex")
+    ecrire_opportunites(statuts, pdf)
     os.makedirs(os.path.join(RACINE, "veille"), exist_ok=True)
     ecrire_calendrier(os.path.join(RACINE, "veille", "calendrier-veille.xlsx"))
     mauvais = [(u, c) for u, c in statuts.items() if not (200 <= c < 400)]

@@ -21,6 +21,10 @@ Chaque institution a son dossier à la racine (minuscules, tirets), organisé en
 - `ressources.xlsx` : généré, liens, rythme de publication, fréquence de veille, statut
 - `presentation.tex` et `presentation.pdf` : Beamer, bleu #0000FF, fond crème, sans ornements
 
+## Opportunités
+
+Pour chaque institution, ajouter dans `OPPORTUNITES` (`outils/donnees_veille.py`) quatre sous-dossiers : `emplois-et-stages`, `consultants-et-marches`, `bourses-et-programmes`, `evenements-et-reseaux`. Ils sont générés dans `opportunites/<institution>/`.
+
 ## Procédure
 
 1. Ajouter l'institution dans `outils/donnees_veille.py` (thèmes, points clés, ressources, calendrier, sous-dossiers).

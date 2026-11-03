@@ -10,6 +10,7 @@ Dépôt de veille et d'étude : comprendre en profondeur comment chaque institut
 | [union-africaine/](union-africaine/README.md) | UA : 10 thèmes, communautés économiques régionales, Agenda 2063 |
 | [ocde/](ocde/README.md) | OCDE : 11 thèmes, normes, examens par les pairs, sous-dossiers par portail de données |
 | [commissions-economiques-regionales/](commissions-economiques-regionales/README.md) | Cinq commissions régionales de l'ONU, un sous-dossier par commission |
+| [opportunites/](opportunites/README.md) | Emplois, stages, marchés, bourses et événements, un sous-dossier par institution, suivi des candidatures |
 | [veille/](veille/README.md) | Routine hebdomadaire, calendrier des publications, journal de veille |
 | [comparaison/](comparaison/01-comparaison.md) | Différences, pièges d'analyse, glossaire |
 | [outils/](outils/) | Source du contenu, générateur Excel et Beamer, vérificateur de liens |
